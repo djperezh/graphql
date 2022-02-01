@@ -15,4 +15,9 @@ const query = gql`
 `
 
 // GraphQL API function
-graphqlRequest(endpoint, query);
+graphqlRequest(endpoint, query).then(function(result) {
+    // Print to console
+    result.getAliens.forEach(alien => {
+        console.log(`[${alien.id}] ${alien.firstName} (from: ${alien.planet})`)
+    });
+});
